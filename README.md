@@ -153,3 +153,6 @@ were done directly by me. I can walk through the reasoning behind any part of th
 - Validation errors could distinguish malformed input from a logically invalid range
   (`ends_at` before `starts_at`).
 
+ ## Testing
+ - You need to add a valid provider with the structure of its gonna receive on application properties
+
