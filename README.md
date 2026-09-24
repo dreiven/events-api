@@ -182,11 +182,11 @@ PROVIDER_URL=https://your-provider.example.com/api/events mvn spring-boot:run
 java -jar target/events-api.jar --provider.url=https://your-provider.example.com/api/events
 ```
 
-With Docker Compose, add it under the service's `environment:`:
+With file application.properties , add it under the service's `provider.events-url:`:
 
-```yaml
-environment:
-  - PROVIDER_URL=https://your-provider.example.com/api/events
+```application.properties
+application.properties:
+  ${PROVIDER_URL:http://localhost:${server.port:8080}/mock-provider/events}
 ```
 
 > If your provider runs on your own machine, use `http://host.docker.internal:<port>/...`
