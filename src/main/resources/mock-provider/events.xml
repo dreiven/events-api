@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<planList version="1.0">
+    <output>
+        <base_plan base_plan_id="1" sell_mode="online" title="Cervantes at the Park">
+            <plan plan_id="101" plan_start_date="2026-11-15T21:00:00" plan_end_date="2026-11-15T23:30:00"
+                  sell_from="2026-09-01T00:00:00" sell_to="2026-11-15T20:00:00" sold_out="false">
+                <zone zone_id="1" capacity="200" price="25.00" name="General" numbered="false"/>
+                <zone zone_id="2" capacity="50" price="45.00" name="VIP" numbered="true"/>
+            </plan>
+        </base_plan>
+        <base_plan base_plan_id="2" sell_mode="offline" title="Spanish Red and White Wine Tasting">
+            <plan plan_id="201" plan_start_date="2026-12-01T19:00:00" plan_end_date="2026-12-01T21:00:00"
+                  sell_from="2026-10-01T00:00:00" sell_to="2026-12-01T18:00:00" sold_out="false">
+                <zone zone_id="3" capacity="30" price="60.00" name="Tasting Room" numbered="false"/>
+            </plan>
+        </base_plan>
+        <base_plan base_plan_id="3" sell_mode="online" title="Flamenco Show">
+            <plan plan_id="301" plan_start_date="2026-10-20T22:00:00" plan_end_date="2026-10-20T23:30:00"
+                  sell_from="2026-09-01T00:00:00" sell_to="2026-10-20T21:00:00" sold_out="true">
+                <zone zone_id="4" capacity="120" price="18.50" name="Stalls" numbered="true"/>
+            </plan>
+        </base_plan>
+    </output>
+</planList>

@@ -154,5 +154,45 @@ were done directly by me. I can walk through the reasoning behind any part of th
   (`ends_at` before `starts_at`).
 
  ## Testing
- - You need to add a valid provider with the structure of its gonna receive on application properties
+## Event provider
 
+The API pulls events from an external XML provider and caches them in the database.
+The cache is refreshed every 30 seconds, and events keep being served from the database if the provider is down.
+
+### Built-in mock (default)
+
+A mock provider is included, so the project runs out of the box with no external dependencies:
+
+```
+GET http://localhost:8080/mock-provider/events
+```
+
+It serves sample data from `src/main/resources/mock-provider/events.xml`, which includes online, offline and sold-out events.
+Only events with `sell_mode="online"` are imported, so offline events are ignored.
+
+### Using your own provider
+
+Any provider that returns the same XML structure can be used. Set the `PROVIDER_URL` environment variable:
+
+```bash
+# Maven
+PROVIDER_URL=https://your-provider.example.com/api/events mvn spring-boot:run
+
+# JAR
+java -jar target/events-api.jar --provider.url=https://your-provider.example.com/api/events
+```
+
+With Docker Compose, add it under the service's `environment:`:
+
+```yaml
+environment:
+  - PROVIDER_URL=https://your-provider.example.com/api/events
+```
+
+> If your provider runs on your own machine, use `http://host.docker.internal:<port>/...`
+> instead of `localhost` when running in Docker. Inside the container, `localhost` is the container itself.
+
+### Expected format
+
+See [`events.xml`](src/main/resources/mock-provider/events.xml) for a complete example.
+The structure is `planList > output > base_plan > plan > zone`.
