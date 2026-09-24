@@ -5,7 +5,7 @@ endpoint (`GET /search`), filtered by date range, in normalized JSON.
 
 ## Notes on approach
 
-A few decisions map directly to Fever's stated evaluation criteria:
+A few decisions map evaluation criteria:
 
 - **Dependency minimalism**: only Spring Boot starters, Lombok, and a DB driver — no
   mapping/utility libraries where hand-written code was equally clear.
